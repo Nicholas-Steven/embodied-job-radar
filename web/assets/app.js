@@ -1,7 +1,7 @@
 (() => {
   const nested = location.pathname.includes('/company/') || location.pathname.includes('/sources/');
   const prefix = nested ? '../' : './';
-  const state = { jobs: [], companyJobs: [], stats: {}, filtered: [], selectedCities: new Set(), page: 1, pageSize: 24, audience: 'campus', showScores: false };
+  const state = { jobs: [], companyJobs: [], stats: {}, filtered: [], selectedCities: new Set(), page: 1, pageSize: 24, showScores: false };
   const $ = (id) => document.getElementById(id);
   const esc = (value) => String(value ?? '').replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
   const fmtDate = (value) => value ? value.slice(0, 10) : '未公开';
@@ -14,14 +14,6 @@
     if (typeof raw === 'object') return [raw.min, raw.max].filter(Boolean).join('–') || raw.text || raw.label || '';
     return '';
   };
-  function audienceOf(job) {
-    const text = [job.job_type, job.title, job.description, ...(job.requirements || [])].filter(Boolean).join(' ').toLowerCase();
-    const campus = job.graduate_year?.length || /(校招|应届|实习|提前批|27届|2027|研究助理)/.test(text);
-    const social = /(社招|社会招聘|全职|经验不限|高级|专家|负责人|经理)/.test(text);
-    if (campus && !(/社招/.test(text) && !/实习/.test(text))) return 'campus';
-    if (social) return 'social';
-    return campus ? 'campus' : 'social';
-  }
   function updateScoreToggle() {
     const button = $('toggleScores');
     if (!button) return;
@@ -84,7 +76,7 @@
     });
   }
   function renderPriority() {
-    const jobs = sortJobs(state.jobs.filter(job => ['open','closing_soon'].includes(job.status) && !job.doctoral_exclusive), 'recommended').slice(0,3);
+    const jobs = sortJobs(state.jobs.filter(job => ['open','closing_soon'].includes(job.status)), 'recommended').slice(0,3);
     $('priorityJobs').innerHTML = jobs.map((job,index) => `<a class="priority-card" href="#jobs" data-priority-id="${esc(job.id)}"><span class="rank">0${index+1} · ${job.official_verified ? 'OFFICIAL' : 'DISCOVERY'}</span><h3>${esc(job.title)}</h3><span class="company">${esc(job.company)} · ${esc(job.city?.join(' / ') || '地点未公开')}</span><div class="priority-footer">${state.showScores ? `<div><small>MATCH</small><strong>${job.match_score ?? '—'}<small>${esc(job.match_level || '')}</small></strong></div>` : '<span class="score-muted">匹配度已隐藏</span>'}<span>查看岗位 →</span></div></a>`).join('') || '<div class="empty">暂无可排序的开放岗位</div>';
     document.querySelectorAll('[data-priority-id]').forEach(el => el.addEventListener('click', () => { const id = el.dataset.priorityId; setTimeout(() => document.querySelector(`[data-id="${CSS.escape(id)}"]`)?.scrollIntoView({block:'center'}), 60); }));
   }
@@ -103,20 +95,18 @@
   function applyFilters() {
     const q = $('searchInput').value.trim().toLowerCase();
     const topic = $('topicFilter').value, degree = $('degreeFilter').value, type = $('typeFilter').value;
-    const minScore = Number($('scoreFilter').value), status = $('statusFilter').value, days = Number($('timeFilter').value), includeDoctoral = $('doctoralToggle').checked;
+    const minScore = Number($('scoreFilter').value), status = $('statusFilter').value, days = Number($('timeFilter').value);
     state.filtered = state.jobs.filter(job => {
       const haystack = [job.company,job.title,job.description,job.location_raw,...(job.city||[]),...(job.skills||[]),...(job.topics||[]),...(job.requirements||[])].join(' ').toLowerCase();
       if (q && !haystack.includes(q)) return false;
       if (topic && !(job.topics || []).includes(topic)) return false;
       if (state.selectedCities.size && !(job.city || []).some(city => state.selectedCities.has(city))) return false;
-      if (state.audience !== 'all' && audienceOf(job) !== state.audience) return false;
       if (degree && !(job.degree || '').includes(degree) && !(degree === '硕士' && ['本科及以上','不限','未公开'].includes(job.degree))) return false;
       if (type && job.job_type !== type) return false;
       if ((job.match_score || 0) < minScore) return false;
       if (status === 'active' && !['open','closing_soon'].includes(job.status)) return false;
       if (status !== 'active' && status !== 'all' && job.status !== status) return false;
       if (days && daysFrom(job.first_seen) >= days) return false;
-      if (!includeDoctoral && job.doctoral_exclusive) return false;
       return true;
     });
     state.filtered = sortJobs(state.filtered, $('sortSelect').value);
@@ -151,12 +141,11 @@
   async function initHome() {
     [state.jobs,state.stats] = await Promise.all([fetch(`${prefix}data/jobs.json`).then(r=>r.json()),fetch(`${prefix}data/stats.json`).then(r=>r.json())]);
     renderStats(); renderPriority(); populateFilters(); updateScoreToggle();
-    ['searchInput','topicFilter','degreeFilter','typeFilter','scoreFilter','statusFilter','timeFilter','doctoralToggle'].forEach(id => $(id).addEventListener(id==='searchInput'?'input':'change',()=>{state.page=1;applyFilters();}));
-    document.querySelectorAll('[name="audience"]').forEach(input => input.addEventListener('change', () => { state.audience = input.value; state.page = 1; applyFilters(); }));
+    ['searchInput','topicFilter','degreeFilter','typeFilter','scoreFilter','statusFilter','timeFilter'].forEach(id => $(id).addEventListener(id==='searchInput'?'input':'change',()=>{state.page=1;applyFilters();}));
     $('sortSelect').addEventListener('change', () => { if ($('sortSelect').value === 'match') { state.showScores = false; updateScoreToggle(); renderPriority(); } state.page = 1; applyFilters(); });
     $('toggleScores').addEventListener('click', () => { state.showScores = !state.showScores; updateScoreToggle(); renderPriority(); renderJobs(); });
     $('citySearch').addEventListener('input',event=>renderCities(event.target.value.trim()));
-    $('resetFilters').addEventListener('click',()=>{ ['searchInput','topicFilter','degreeFilter','typeFilter'].forEach(id=>$(id).value=''); $('scoreFilter').value='0'; $('statusFilter').value='active'; $('timeFilter').value='0'; $('sortSelect').value='recommended'; $('doctoralToggle').checked=false; state.selectedCities.clear(); state.audience='campus'; document.querySelector('[name="audience"][value="campus"]').checked=true; state.showScores=false; updateScoreToggle(); renderPriority(); renderCities(''); state.page=1; applyFilters(); });
+    $('resetFilters').addEventListener('click',()=>{ ['searchInput','topicFilter','degreeFilter','typeFilter'].forEach(id=>$(id).value=''); $('scoreFilter').value='0'; $('statusFilter').value='active'; $('timeFilter').value='0'; $('sortSelect').value='recommended'; state.selectedCities.clear(); state.showScores=false; updateScoreToggle(); renderPriority(); renderCities(''); state.page=1; applyFilters(); });
     $('loadMore').addEventListener('click',()=>{state.page++;renderJobs();}); applyFilters();
   }
   async function initCompany() {
