@@ -5,6 +5,8 @@ import json
 import shutil
 from pathlib import Path
 
+import yaml
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -18,6 +20,17 @@ def build(output: Path) -> Path:
     for name in ("jobs.json", "stats.json"):
         shutil.copy2(ROOT / "data" / name, assets / name)
     shutil.copy2(ROOT / "logs/update-report.json", assets / "update-report.json")
+    source_configs = yaml.safe_load((ROOT / "config/sources.yaml").read_text(encoding="utf-8")).get("sources", [])
+    source_registry = [{
+        "id": item.get("id"),
+        "name": item.get("name"),
+        "tier": item.get("tier", 3),
+        "adapter": item.get("adapter"),
+        "company": item.get("company"),
+        "source_url": item.get("source_url"),
+        "official_apply_url": item.get("official_apply_url"),
+    } for item in source_configs]
+    (assets / "sources.json").write_text(json.dumps(source_registry, ensure_ascii=False, indent=2), encoding="utf-8")
     (output / ".nojekyll").write_text("", encoding="utf-8")
     return output
 
@@ -35,4 +48,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

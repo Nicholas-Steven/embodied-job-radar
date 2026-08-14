@@ -104,4 +104,61 @@ sources:
     source_url: "https://github.com/Xbotics-Embodied-AI-club/Xbotics-Embodied-AI-Job"
     raw_url: "https://raw.githubusercontent.com/Xbotics-Embodied-AI-club/Xbotics-Embodied-AI-Job/main/README.md"
     lookback_days: 90
-
+  - id: tars_2027
+    adapter: records
+    name: 它石智航官方招聘
+    tier: 1
+    source_url: "https://tarsrobot.jobs.feishu.cn/"
+    company: 它石智航
+    official_apply_url: "https://tarsrobot.jobs.feishu.cn/021343"
+    official_verified: true
+    common:
+      city: [上海]
+      location_raw: "上海（以官网职位列表为准）"
+      job_type: 正式校招
+      graduate_year: [2027]
+      degree: 未公开
+      published_date: null
+      deadline: null
+      status: open
+    records:
+      - {title: TARS-STAR具身智能基座模型方向, topics: [VLA, World Model, Robot Learning]}
+      - {title: TARS-STAR机器人全栈系统方向, topics: [机器人软件, 运动规划, 模型部署]}
+  - id: agilex_2027
+    adapter: records
+    name: 松灵机器人官方校园招聘
+    tier: 1
+    source_url: "https://mammotion.jobs.feishu.cn/AgileX_campus_recruitment"
+    company: 松灵机器人
+    official_apply_url: "https://mammotion.jobs.feishu.cn/AgileX_campus_recruitment"
+    official_verified: true
+    common:
+      city: []
+      location_raw: 未公开
+      job_type: 实习
+      graduate_year: [2027]
+      degree: 本科及以上
+      published_date: null
+      deadline: null
+      status: open
+    records:
+      - {title: 具身智能实习生, topics: [机器人软件, 机器人操作, 模型部署]}
+  - id: a4x_2027
+    adapter: records
+    name: 积加科技官方校园招聘
+    tier: 1
+    source_url: "https://a4x-paas.jobs.feishu.cn/500117"
+    company: 积加科技
+    official_apply_url: "https://a4x-paas.jobs.feishu.cn/500117"
+    official_verified: true
+    common:
+      city: []
+      location_raw: 未公开
+      job_type: 实习
+      graduate_year: [2027]
+      degree: 未公开
+      published_date: null
+      deadline: null
+      status: open
+    records:
+      - {title: 具身智能多模态感知与操作实习生, topics: [视觉力觉, World Model, 机器人操作]}

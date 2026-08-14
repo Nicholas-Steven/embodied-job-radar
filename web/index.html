@@ -39,19 +39,22 @@
     <section id="jobs" class="jobs-layout">
       <aside class="filters">
         <div class="filter-header"><div><span class="index">02</span><h2>筛选岗位</h2></div><button id="resetFilters" type="button">重置</button></div>
-        <label class="search-field"><span>全文搜索</span><input id="searchInput" type="search" placeholder="公司 / 岗位 / 技能 / 城市" autocomplete="off"></label>
-        <label><span>方向</span><select id="topicFilter"><option value="">全部方向</option></select></label>
-        <div class="city-filter"><span>城市 · 多选</span><input id="citySearch" type="search" placeholder="搜索城市"><div id="cityOptions" class="city-options"></div></div>
-        <label><span>学历</span><select id="degreeFilter"><option value="">全部</option><option>本科</option><option>硕士</option><option>博士</option><option>不限</option></select></label>
-        <label><span>招聘类型</span><select id="typeFilter"><option value="">全部</option><option>正式校招</option><option>提前批</option><option>实习</option><option>实习转正</option></select></label>
-        <label><span>匹配度</span><select id="scoreFilter"><option value="0">全部</option><option value="90">S · 90+</option><option value="80">A · 80+</option><option value="70">B · 70+</option></select></label>
-        <label><span>状态</span><select id="statusFilter"><option value="active" selected>招聘中</option><option value="closing_soon">即将截止</option><option value="unknown">状态未知</option><option value="expired">历史岗位</option><option value="all">全部</option></select></label>
-        <label><span>时间</span><select id="timeFilter"><option value="0">全部</option><option value="1">今日新增</option><option value="3">近 3 天</option><option value="7">近 7 天</option><option value="30">近 30 天</option></select></label>
-        <label class="toggle-row"><input id="doctoralToggle" type="checkbox"><span>包含博士专属岗位</span></label>
+        <div class="filter-grid">
+          <div class="audience-filter"><span>招聘人群</span><div class="segmented" role="radiogroup" aria-label="招聘人群"><label><input type="radio" name="audience" value="campus" checked><span>校招 / 实习</span></label><label><input type="radio" name="audience" value="social"><span>社招 / 全职</span></label><label><input type="radio" name="audience" value="all"><span>全部</span></label></div></div>
+          <label class="search-field"><span>全文搜索</span><input id="searchInput" type="search" placeholder="公司 / 岗位 / 技能 / 城市" autocomplete="off"></label>
+          <label><span>方向</span><select id="topicFilter"><option value="">全部方向</option></select></label>
+          <div class="city-filter"><span>城市 · 多选</span><input id="citySearch" type="search" placeholder="搜索城市"><div id="cityOptions" class="city-options"></div></div>
+          <label><span>学历</span><select id="degreeFilter"><option value="">全部</option><option>本科</option><option>硕士</option><option>博士</option><option>不限</option></select></label>
+          <label><span>招聘类型</span><select id="typeFilter"><option value="">全部</option><option>正式校招</option><option>提前批</option><option>实习</option><option>实习转正</option><option>社招</option><option>全职</option></select></label>
+          <label><span>最低匹配度</span><select id="scoreFilter"><option value="0">全部</option><option value="90">S · 90+</option><option value="80">A · 80+</option><option value="70">B · 70+</option></select></label>
+          <label><span>状态</span><select id="statusFilter"><option value="active" selected>招聘中</option><option value="closing_soon">即将截止</option><option value="unknown">状态未知</option><option value="expired">历史岗位</option><option value="all">全部</option></select></label>
+          <label><span>时间</span><select id="timeFilter"><option value="0">全部</option><option value="1">今日新增</option><option value="3">近 3 天</option><option value="7">近 7 天</option><option value="30">近 30 天</option></select></label>
+          <label class="toggle-row"><input id="doctoralToggle" type="checkbox"><span>包含博士专属岗位</span></label>
+        </div>
       </aside>
 
       <div class="results">
-        <div class="results-toolbar"><div><small>JOB DATABASE</small><strong><span id="resultCount">—</span> 个岗位</strong></div><label>排序<select id="sortSelect"><option value="recommended">推荐排序</option><option value="published">最新发布</option><option value="seen">最新发现</option><option value="match">匹配度</option><option value="deadline">截止日期</option><option value="company">公司</option></select></label></div>
+        <div class="results-toolbar"><div><small>JOB DATABASE</small><strong><span id="resultCount">—</span> 个岗位</strong></div><div class="results-actions"><button id="toggleScores" class="score-toggle" type="button" aria-pressed="false">显示匹配度</button><label>排序<select id="sortSelect"><option value="recommended">推荐排序</option><option value="published">最新发布</option><option value="seen">最新发现</option><option value="match">匹配度</option><option value="deadline">截止日期</option><option value="company">公司</option></select></label></div></div>
         <div id="jobList" class="job-list" aria-live="polite"></div>
         <button id="loadMore" class="load-more" type="button">加载更多</button>
       </div>
@@ -67,4 +70,3 @@
   <script src="assets/app.js" defer></script>
 </body>
 </html>
-
