@@ -1,0 +1,30 @@
+companies:
+  - {name: 智元机器人, career_url: "https://www.zhiyuan-robot.com/"}
+  - {name: 银河通用, career_url: "https://owm6ymi5v9b.jobs.feishu.cn/584984/"}
+  - {name: 千寻智能, career_url: "https://nwd4iy9rd2s.jobs.feishu.cn/campusofSpiritAI"}
+  - {name: 宇树科技, career_url: "https://www.unitree.com/mobile/position/"}
+  - {name: 逐际动力, career_url: null}
+  - {name: 傅利叶智能, career_url: null}
+  - {name: 戴盟机器人, career_url: null}
+  - {name: 星尘智能, career_url: null}
+  - {name: Sharpa, career_url: null}
+  - {name: 众擎机器人, career_url: null}
+  - {name: 小鹏, career_url: "https://job.xiaopeng.com/"}
+  - {name: 理想, career_url: "https://www.lixiang.com/careers"}
+  - {name: 小米, career_url: "https://hr.xiaomi.com/"}
+  - {name: 蔚来, career_url: "https://nio.jobs.feishu.cn/"}
+  - {name: 比亚迪, career_url: "https://job.byd.com/"}
+  - {name: 华为, career_url: "https://career.huawei.com/"}
+  - {name: 阿里巴巴, career_url: "https://campus.alibaba.com/"}
+  - {name: 字节跳动, career_url: "https://jobs.bytedance.com/campus"}
+  - {name: 美团, career_url: "https://zhaopin.meituan.com/"}
+  - {name: 腾讯, career_url: "https://join.qq.com/"}
+  - {name: 百度, career_url: "https://talent.baidu.com/"}
+  - {name: 大疆, career_url: "https://we.dji.com/"}
+  - {name: 海康威视, career_url: "https://campushr.hikvision.com/"}
+  - {name: 地平线, career_url: "https://horizon.jobs.feishu.cn/"}
+  - {name: 商汤, career_url: "https://joinus.sensetime.com/"}
+  - {name: 科大讯飞, career_url: "https://campus.iflytek.com/"}
+  - {name: Momenta, career_url: "https://momenta.jobs.feishu.cn/"}
+  - {name: 自变量机器人, career_url: "https://x2-robot.jobs.feishu.cn/912130"}
+

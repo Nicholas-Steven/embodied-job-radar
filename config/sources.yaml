@@ -1,0 +1,107 @@
+sources:
+  - id: spirit_2027
+    adapter: records
+    name: 清华大学就业网 · 千寻智能2027校招
+    tier: 2
+    source_url: "https://career.cic.tsinghua.edu.cn/xsglxt/f/jyxt/anony/showZwxx?zpxxid=546100058"
+    company: 千寻智能
+    official_apply_url: "https://nwd4iy9rd2s.jobs.feishu.cn/campusofSpiritAI"
+    official_verified: true
+    common:
+      city: [北京, 杭州, 深圳]
+      location_raw: "北京（部分岗位实习）；应届 offer 可 base 杭州、深圳"
+      job_type: 实习转正
+      graduate_year: [2027]
+      degree: 本科及以上
+      published_date: "2026-06-29"
+      deadline: null
+      status: open
+    records:
+      - {title: 数据算法工程师, topics: [Robot Learning, 模型评测]}
+      - {title: VLA操作算法工程师, topics: [VLA, 机器人操作]}
+      - {title: 前沿技术探索组, topics: [VLA, Robot Learning]}
+      - {title: 预训练算法工程师, topics: [VLA]}
+      - {title: Agent算法工程师, topics: [VLA, 运动规划]}
+      - {title: 后训练算法工程师, topics: [后训练, 强化学习]}
+      - {title: 导航算法工程师, topics: [运动规划]}
+      - {title: AI Infra工程师, topics: [模型部署]}
+      - {title: 强化学习运控算法工程师, topics: [强化学习, 运动规划]}
+      - {title: 模型评测工程师, topics: [模型评测]}
+      - {title: 机器人软件工程师, topics: [机器人软件]}
+      - {title: 具身智能AI平台研发工程师, topics: [机器人软件, 模型部署]}
+  - id: galbot_2027
+    adapter: records
+    name: 兰州大学就业网 · 银河通用2027秋招
+    tier: 2
+    source_url: "https://job.lzu.edu.cn/html/22/article/2026/90464.html"
+    company: 银河通用
+    official_apply_url: "https://owm6ymi5v9b.jobs.feishu.cn/584984/"
+    official_verified: true
+    common:
+      city: [北京, 深圳, 苏州]
+      location_raw: "北京、深圳、苏州"
+      job_type: 正式校招
+      graduate_year: [2027]
+      degree: 未公开
+      published_date: "2026-07-28"
+      deadline: "2026-09-26"
+      status: open
+    records:
+      - {title: 具身多模态大模型, topics: [VLA, World Model]}
+      - {title: 具身智能操作算法, topics: [VLA, 机器人操作]}
+      - {title: 机器人规划与控制, topics: [运动规划]}
+      - {title: 人形强化学习控制, topics: [强化学习, Sim2Real]}
+      - {title: 机器人硬件与量产, topics: []}
+      - {title: 具身软件系统开发, topics: [机器人软件, 模型部署]}
+  - id: bytedance_seed_embodied_2027
+    adapter: records
+    name: 字节跳动校园招聘
+    tier: 1
+    source_url: "https://jobs.bytedance.com/campus/m/position/detail/7623060013187123509"
+    company: 字节跳动
+    official_apply_url: "https://jobs.bytedance.com/campus/m/position/detail/7623060013187123509"
+    official_verified: true
+    common:
+      city: []
+      location_raw: 未公开
+      job_type: 正式校招
+      graduate_year: [2027]
+      degree: 本科及以上
+      published_date: null
+      deadline: null
+      status: open
+    records:
+      - {title: 具身智能算法研究员-Seed大模型人才校招, topics: [VLA, Robot Learning, 强化学习]}
+  - id: x2_2027
+    adapter: records
+    name: 自变量机器人校园招聘官网
+    tier: 1
+    source_url: "https://x2-robot.jobs.feishu.cn/912130"
+    company: 自变量机器人
+    official_apply_url: "https://x2-robot.jobs.feishu.cn/912130"
+    official_verified: true
+    common:
+      city: []
+      location_raw: 未公开
+      job_type: 正式校招
+      graduate_year: [2027]
+      degree: 未公开
+      published_date: "2026-08-06"
+      deadline: "2026-12-31"
+      status: open
+    records:
+      - {title: VLA算法工程师, topics: [VLA, 机器人操作]}
+      - {title: 世界模型算法工程师, topics: [World Model, VLA]}
+      - {title: 灵巧手算法工程师, topics: [机器人操作, 视觉力觉]}
+      - {title: 大模型Infra工程师, topics: [模型部署]}
+      - {title: 强化学习算法工程师, topics: [强化学习]}
+      - {title: 运控算法工程师, topics: [运动规划, 强化学习]}
+      - {title: 触觉算法工程师, topics: [视觉力觉]}
+  - id: xbotics_discovery
+    adapter: xbotics_markdown
+    name: Xbotics具身智能社区岗位汇总
+    tier: 3
+    source_url: "https://github.com/Xbotics-Embodied-AI-club/Xbotics-Embodied-AI-Job"
+    raw_url: "https://raw.githubusercontent.com/Xbotics-Embodied-AI-club/Xbotics-Embodied-AI-Job/main/README.md"
+    lookback_days: 90
+

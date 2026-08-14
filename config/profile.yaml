@@ -1,0 +1,43 @@
+education:
+  degree: master
+  major: engineering
+research:
+  - embodied_ai
+  - robot_manipulation
+  - VLA
+  - vision_force_fusion
+  - task_state_understanding
+  - failure_detection
+  - failure_recovery
+experience:
+  - pi0.5 deployment
+  - robot demonstration data collection
+  - robot grasping
+  - real robot experiments
+  - robot simulation
+  - Linux
+  - Python
+hardware:
+  - ZeroErr robot arm
+  - Intel RealSense D435
+  - six-axis force torque sensor
+  - mobile dual-arm robot
+learning:
+  - imitation_learning
+  - reinforcement_learning
+  - diffusion_policy
+  - flow_matching
+  - MuJoCo
+  - Isaac Sim
+  - ROS2
+  - C++
+target_roles:
+  - VLA
+  - robot_manipulation
+  - robot_learning
+  - embodied_ai
+  - model_evaluation
+  - post_training
+  - robot_simulation
+  - model_deployment
+

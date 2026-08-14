@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-08-14T11:49:56+00:00",
+  "active_jobs": 26,
+  "new_today": 214,
+  "high_match": 3,
+  "closing_soon": 0,
+  "total_jobs": 214,
+  "official_verified": 26,
+  "unknown_status": 188,
+  "topics": {
+    "VLA": 9,
+    "强化学习": 6,
+    "运动规划": 5,
+    "机器人操作": 4,
+    "模型部署": 4,
+    "Robot Learning": 3,
+    "机器人软件": 3,
+    "World Model": 2,
+    "模型评测": 2,
+    "视觉力觉": 2,
+    "Sim2Real": 1,
+    "后训练": 1
+  },
+  "cities": {
+    "北京": 18,
+    "深圳": 18,
+    "杭州": 12,
+    "苏州": 6
+  },
+  "trend": {
+    "status": "样本不足",
+    "items": []
+  }
+}
