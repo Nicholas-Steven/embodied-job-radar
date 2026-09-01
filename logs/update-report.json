@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-09-01T05:32:02+00:00",
+  "run_at": "2026-09-01T16:51:14+00:00",
   "successful_sources": [
     {
       "id": "spirit_2027",
@@ -44,7 +44,7 @@
   ],
   "failed_sources": [],
   "discovered_jobs": 325,
-  "new_jobs": 23,
+  "new_jobs": 0,
   "updated_jobs": 0,
   "duplicate_jobs": 53,
   "preserved_jobs": 24,
