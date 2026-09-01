@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-08-31T19:12:42+00:00",
+  "run_at": "2026-09-01T05:32:02+00:00",
   "successful_sources": [
     {
       "id": "spirit_2027",
@@ -24,7 +24,7 @@
     {
       "id": "xbotics_discovery",
       "name": "Xbotics具身智能社区岗位汇总",
-      "jobs": 272
+      "jobs": 295
     },
     {
       "id": "tars_2027",
@@ -43,8 +43,8 @@
     }
   ],
   "failed_sources": [],
-  "discovered_jobs": 302,
-  "new_jobs": 5,
+  "discovered_jobs": 325,
+  "new_jobs": 23,
   "updated_jobs": 0,
   "duplicate_jobs": 53,
   "preserved_jobs": 24,
