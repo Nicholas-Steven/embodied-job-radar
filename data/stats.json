@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-26T21:51:00+00:00",
+  "generated_at": "2026-11-27T08:58:34+00:00",
   "active_jobs": 30,
-  "new_today": 0,
+  "new_today": 13,
   "high_match": 3,
   "closing_soon": 0,
-  "total_jobs": 582,
+  "total_jobs": 595,
   "official_verified": 30,
-  "unknown_status": 552,
+  "unknown_status": 565,
   "topics": {
     "VLA": 10,
     "强化学习": 6,
